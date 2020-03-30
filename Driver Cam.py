@@ -25,6 +25,9 @@ def hel():
 def Contri():
    tkinter.messagebox.showinfo("Contributors","\n1.Satya \n2. UdayaSri \n3. Swapna \n4. Sai Nikhil")
 
+def guide():
+    tkinter.messagebox.showinfo("Project Guide","K. Durga Prasad,\nAssociate Professor,\nDepartment of Information Technology.\ncontact : durgaprasad.k@bvrit.ac.in");
+
 
 def anotherWin():
    tkinter.messagebox.showinfo("About",'Driver Cam version v1.0\n Made Using\n-OpenCV\n-Numpy\n-Tkinter\n In Python 3')
@@ -42,6 +45,7 @@ subm2 = Menu(menu)
 menu.add_cascade(label="About",menu=subm2)
 subm2.add_command(label="Driver Cam",command=anotherWin)
 subm2.add_command(label="Contributors",command=Contri)
+subm2.add_command(label= "Guide Info", command = guide)
 
 
 
@@ -51,6 +55,8 @@ def exitt():
 
 def web():
    capture =cv2.VideoCapture(0)
+   capture.set(cv2.CAP_PROP_FRAME_WIDTH, 160)
+   capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 120)
    while True:
       ret,frame=capture.read()
       gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -170,7 +176,9 @@ def blink():
 
          blink = blink_cascade.detectMultiScale(roi_gray)
          for(eyx,eyy,eyw,eyh) in blink:
-            cv2.rectangle(roi_color,(eyx,eyy),(eyx+eyw,eyy+eyh),(0,0,255),2)
+            cv2.rectangle(roi_color,(eyx,eyy),(eyx+eyw,eyy+eyh),(0,0,0),2)
+            cv2.putText(frame, "DROWSINESS ALERT!", (10, 30),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
             alert()
       cv2.imshow('blink detection ans recording',frame)
       if cv2.waitKey(1) & 0xFF ==ord('q'):

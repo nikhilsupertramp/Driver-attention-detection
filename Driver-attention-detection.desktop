@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Pupil Player
+Version=v0.8.5
+Icon=pupil-player
+X-Icon-Path=/home/pupil-labs/Documents/Repo/pupil/deployment/deploy_player
+Exec=python /home/pupil-labs/Documents/Repo/pupil/pupil_src/player/main.py
+Terminal=false
+Type=Application
