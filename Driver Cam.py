@@ -5,16 +5,17 @@ import cv2
 from tkinter import *
 import tkinter.messagebox
 root=Tk()
-root.geometry('1920x1200')
+root.geometry('1920x1080')
 frame = Frame(root, relief=RIDGE, borderwidth=2)
 frame.pack(fill=BOTH,expand=1)
-root.title('Driver Cam')
+#root.resizable(0,0)
+root.title('Driver Attention Detection Cam')
 frame.config(background='light blue')
-label = Label(frame, text="Driver Cam",bg='light blue',font=('Times 35 bold'))
-label.pack(side=TOP)
+#label = Label(frame, text="Driver Cam",bg='light blue',font=('Times 35 bold'))
 filename = PhotoImage(file="demo.png")
 background_label = Label(frame,image=filename)
-background_label.pack(side=TOP)
+background_label.pack()
+background_label.place(relx=0.5, rely=0.5, anchor="center")
 
 
 
@@ -180,23 +181,23 @@ def blink():
    cv2.destroyAllWindows()
 
 
-but1=Button(frame,padx=5,pady=5,width=35,bg='white',fg='black',relief=GROOVE,command=web,text='Open Cam',font=('helvetica 15 bold'))
-but1.place(relx=0.5,y=104, anchor = CENTER)
+but1=Button(frame,padx=5,pady=5,width=35,bg='orange',fg='black',relief=GROOVE,command=web,text='Open Cam',font=('helvetica 15 bold'))
+but1.place(relx=0.5,y=125, anchor = CENTER)
 
-but2=Button(frame,padx=5,pady=5,width=35,bg='white',fg='black',relief=GROOVE,command=webrec,text='Open Cam & Record',font=('helvetica 15 bold'))
-but2.place(relx=0.5,y=176,anchor = CENTER)
+but2=Button(frame,padx=5,pady=5,width=35,bg='orange',fg='black',relief=GROOVE,command=webrec,text='Open Cam & Record',font=('helvetica 15 bold'))
+but2.place(relx=0.5,y=197,anchor = CENTER)
 
-but3=Button(frame,padx=5,pady=5,width=35,bg='white',fg='black',relief=GROOVE,command=webdet,text='Open Cam & Detect',font=('helvetica 15 bold'))
-but3.place(relx=0.5,y=250,anchor = CENTER)
+but3=Button(frame,padx=5,pady=5,width=35,bg='orange',fg='black',relief=GROOVE,command=webdet,text='Open Cam & Detect',font=('helvetica 15 bold'))
+but3.place(relx=0.5,y=269,anchor = CENTER)
 
-but4=Button(frame,padx=5,pady=5,width=35,bg='white',fg='black',relief=GROOVE,command=webdetRec,text='Detect & Record',font=('helvetica 15 bold'))
-but4.place(relx=0.5,y=322,anchor = CENTER)
+but4=Button(frame,padx=5,pady=5,width=35,bg='orange',fg='black',relief=GROOVE,command=webdetRec,text='Detect & Record',font=('helvetica 15 bold'))
+but4.place(relx=0.5,y=341,anchor = CENTER)
 
-but5=Button(frame,padx=5,pady=5,width=35,bg='white',fg='black',relief=GROOVE,command=blink,text='Detect Eye Blink & Record With Sound',font=('helvetica 15 bold'))
-but5.place(relx=0.5,y=400,anchor = CENTER)
+but5=Button(frame,padx=5,pady=5,width=35,bg='orange',fg='black',relief=GROOVE,command=blink,text='Detect Eye Blink & Record With Sound',font=('helvetica 15 bold'))
+but5.place(relx=0.5,y=413,anchor = CENTER)
 
 but5=Button(frame,padx=5,pady=5,width=10,bg='red',fg='white',relief=GROOVE,text='EXIT',command=exitt,font=('helvetica 10 bold'))
-but5.place(relx=0.5,y=478,anchor = CENTER)
+but5.place(relx=0.5,y=490,anchor = CENTER)
 
 
 root.mainloop()
