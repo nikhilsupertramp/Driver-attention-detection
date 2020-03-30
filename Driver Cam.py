@@ -150,7 +150,7 @@ def blink():
    capture =cv2.VideoCapture(0)
    face_cascade = cv2.CascadeClassifier('lbpcascade_frontalface.xml')
    eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
-   blink_cascade = cv2.CascadeClassifier('CustomBlinkCascade.xml')
+   blink_cascade = cv2.CascadeClassifier('BlinkDetection.xml')
 
    while True:
       ret, frame = capture.read()
@@ -170,7 +170,7 @@ def blink():
 
          blink = blink_cascade.detectMultiScale(roi_gray)
          for(eyx,eyy,eyw,eyh) in blink:
-            cv2.rectangle(roi_color,(eyx,eyy),(eyx+eyw,eyy+eyh),(255,255,0),2)
+            cv2.rectangle(roi_color,(eyx,eyy),(eyx+eyw,eyy+eyh),(0,0,255),2)
             alert()
       cv2.imshow('blink detection ans recording',frame)
       if cv2.waitKey(1) & 0xFF ==ord('q'):
